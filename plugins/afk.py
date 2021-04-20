@@ -45,9 +45,7 @@ LOG = Var.LOG_CHANNEL
 @ultroid_bot.on(events.MessageEdited(outgoing=True))
 async def set_not_afk(event):
     if event.is_private:
-        if Redis("PMSETTING") == "True":
-            if not is_approved(event.chat_id):
-                return
+        return
     global USER_AFK
     global afk_time
     global last_afk_message
@@ -113,7 +111,7 @@ async def set_not_afk(event):
 )
 async def on_afk(event):
     if event.is_private:
-                return
+        return
     global USER_AFK
     global afk_time
     global last_afk_message
