@@ -31,9 +31,6 @@ from . import *
 
 @ultroid_cmd(pattern="blacklist ?(.*)")
 async def af(e):
-    if e.is_group:
-        if not e._chat.admin_rights:
-            return await eod(e, "`You are Not Admin Here`")
     wrd = (e.pattern_match.group(1)).lower()
     chat = e.chat_id
     if not (wrd):
@@ -45,9 +42,6 @@ async def af(e):
 
 @ultroid_cmd(pattern="remblacklist ?(.*)")
 async def rf(e):
-    if e.is_group:
-        if not e._chat.admin_rights:
-            return await eod(e, "`You are Not Admin Here`")
     wrd = (e.pattern_match.group(1)).lower()
     chat = e.chat_id
     if not wrd:
@@ -58,9 +52,6 @@ async def rf(e):
 
 @ultroid_cmd(pattern="listblacklist")
 async def lsnote(e):
-    if e.is_group:
-        if not e._chat.admin_rights:
-            return await eod(e, "`You are Not Admin Here`")
     x = list_blacklist(e.chat_id)
     if x:
         sd = "Blacklist Found In This Chats Are\n\n"
