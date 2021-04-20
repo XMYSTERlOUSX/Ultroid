@@ -24,7 +24,7 @@ async def on_new_mssg(event):
     if is_blacklisted(who):
         return
     # doesn't reply to that user anymore
-    if incoming.startswith("!"):
+    if incoming.startswith("/"):
         pass
     elif who == OWNER_ID:
         return
