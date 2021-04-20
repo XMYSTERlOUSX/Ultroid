@@ -17,7 +17,7 @@ from plugins import *
 from . import *
 
 
-@asst_cmd("trazy")
+@asst_cmd("start")
 async def assistant(event):
     if event.is_group and event.sender_id in sed:
         bnn = (await asst.get_me()).username
@@ -48,7 +48,7 @@ async def assistant(event):
             )
 
 
-@asst_cmd("trazy ?(.*)")
+@asst_cmd("start ?(.*)")
 @owner
 async def ultroid(event):
     if event.pattern_match.group(1):
