@@ -113,8 +113,6 @@ async def set_not_afk(event):
 )
 async def on_afk(event):
     if event.is_private:
-        if Redis("PMSETTING") == "True":
-            if not is_approved(event.chat_id):
                 return
     global USER_AFK
     global afk_time
