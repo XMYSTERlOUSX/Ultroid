@@ -44,8 +44,6 @@ LOG = Var.LOG_CHANNEL
 @ultroid_bot.on(events.NewMessage(outgoing=True))
 @ultroid_bot.on(events.MessageEdited(outgoing=True))
 async def set_not_afk(event):
-    if event.is_private:
-        return
     global USER_AFK
     global afk_time
     global last_afk_message
@@ -110,8 +108,6 @@ async def set_not_afk(event):
     events.NewMessage(incoming=True, func=lambda e: bool(e.mentioned or e.is_private)),
 )
 async def on_afk(event):
-    if event.is_private:
-        return
     global USER_AFK
     global afk_time
     global last_afk_message
