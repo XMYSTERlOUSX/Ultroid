@@ -63,30 +63,31 @@ async def lsnote(e):
 @ultroid_bot.on(events.NewMessage(incoming=True))
 async def bl(e):
     chat = e.chat_id
-    x = get_blacklist(int(chat))
-    xx = (e.text).lower()
-    if x and xx:
-        if " " in xx:
-            xx = xx.split(" ")
-            kk = ""
-            for c in xx:
-                kk = re.search(str(c), str(x), flags=re.IGNORECASE)
-            if kk:
-                async for l in ultroid_bot.iter_participants(
-                    e.chat_id, filter=ChannelParticipantsAdmins
-                ):
-                    if l.id == e.sender_id:
-                        return
-                await e.delete()
-        else:
-            k = re.search(xx, x, flags=re.IGNORECASE)
-            if k:
-                async for l in ultroid_bot.iter_participants(
-                    e.chat_id, filter=ChannelParticipantsAdmins
-                ):
-                    if l.id == e.sender_id:
-                        return
-                await e.delete()
+    if e.is_private:
+        x = get_blacklist(int(chat))
+        xx = (e.text).lower()
+            if x and xx:
+                if " " in xx:
+                    xx = xx.split(" ")
+                    kk = ""
+                for c in xx:
+                    kk = re.search(str(c), str(x), flags=re.IGNORECASE)
+                if kk:
+                    async for l in ultroid_bot.iter_participants(
+                        e.chat_id, filter=ChannelParticipantsAdmins
+                    ):
+                        if l.id == e.sender_id:
+                            return
+                    await e.delete()
+            else:
+                k = re.search(xx, x, flags=re.IGNORECASE)
+                if k:
+                    async for l in ultroid_bot.iter_participants(
+                        e.chat_id, filter=ChannelParticipantsAdmins
+                    ):
+                        if l.id == e.sender_id:
+                            return
+                    await e.delete()
 
 
 HELP.update({f"{__name__.split('.')[1]}": f"{__doc__.format(i=HNDLR)}"})
