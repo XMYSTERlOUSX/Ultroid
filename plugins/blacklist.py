@@ -7,12 +7,16 @@
 
 """
 ✘ Commands Available -
+
 • `{i}blacklist <word/all words with a space>`
     blacklist the choosen word in that chat.
+
 • `{i}remblacklist <word>`
     Remove the word from blacklist..
+
 • `{i}listblacklist`
     list all blacklisted words.
+
   'if a person uses blacklist Word his/her msg will be deleted'
   'And u Must be Admin in that Chat'
 """
