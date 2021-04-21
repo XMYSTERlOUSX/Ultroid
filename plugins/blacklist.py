@@ -7,16 +7,12 @@
 
 """
 ✘ Commands Available -
-
 • `{i}blacklist <word/all words with a space>`
     blacklist the choosen word in that chat.
-
 • `{i}remblacklist <word>`
     Remove the word from blacklist..
-
 • `{i}listblacklist`
     list all blacklisted words.
-
   'if a person uses blacklist Word his/her msg will be deleted'
   'And u Must be Admin in that Chat'
 """
@@ -63,30 +59,19 @@ async def lsnote(e):
 @ultroid_bot.on(events.NewMessage(incoming=True))
 async def bl(e):
     chat = e.chat_id
-    if not e.is_group:
-        x = get_blacklist(int(chat))
-        xx = (e.text).lower()
-            if x and xx:
-                if " " in xx:
-                    xx = xx.split(" ")
-                    kk = ""
-                for c in xx:
-                    kk = re.search(str(c), str(x), flags=re.IGNORECASE)
-                if kk:
-                    async for l in ultroid_bot.iter_participants(
-                        e.chat_id, filter=ChannelParticipantsAdmins
-                    ):
-                        if l.id == e.sender_id:
-                            return
+    x = get_blacklist(int(chat))
+        if " " in xx:
+            xx = xx.split(" ")
+            kk = ""
+            for c in xx:
+                kk = re.search(str(c), str(x), flags=re.IGNORECASE)
+            if kk:
+                try:
                     await e.delete()
-            else:
-                k = re.search(xx, x, flags=re.IGNORECASE)
-                if k:
-                    async for l in ultroid_bot.iter_participants(
-                        e.chat_id, filter=ChannelParticipantsAdmins
-                    ):
-                        if l.id == e.sender_id:
-                            return
+        else:
+            k = re.search(xx, x, flags=re.IGNORECASE)
+            if k:
+                try:
                     await e.delete()
 
 
