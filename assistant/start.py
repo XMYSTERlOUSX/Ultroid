@@ -17,7 +17,7 @@ from plugins import *
 from . import *
 
 
-@asst_cmd("trazy")
+@asst_cmd("connect")
 async def assistant(event):
     if event.is_group and event.sender_id in sed:
         bnn = (await asst.get_me()).username
@@ -33,10 +33,9 @@ async def assistant(event):
             return
         if not udB.get("STARTMSG"):
             if udB.get("PMBOT") == "True":
-                ok = "You can contact my master using this bot!!\n\nSend your Message, I will Deliver it To Master."
+                ok = "You have succesfully connected with the boy's Database! 🥳"
             await event.reply(
-                f"Hey there, this is Ultroid Assistant of {OWNER_NAME}!\n\n{ok}",
-                buttons=[Button.url("Know More", url="https://t.me/TeamUltroid")],
+                f"🍁Hi am Mysterious Uploader bot.. 🍁!\n\n",
             )
         else:
             u = await event.client.get_entity(event.chat_id)
@@ -48,7 +47,7 @@ async def assistant(event):
             )
 
 
-@asst_cmd("trazy ?(.*)")
+@asst_cmd("connect ?(.*)")
 @owner
 async def ultroid(event):
     if event.pattern_match.group(1):
