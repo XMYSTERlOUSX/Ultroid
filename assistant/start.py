@@ -33,9 +33,9 @@ async def assistant(event):
             return
         if not udB.get("STARTMSG"):
             if udB.get("PMBOT") == "True":
-                ok = "You have succesfully connected with the boy's Database! 🥳"
+                ok = "You have succesfully connected with the bot's Database! 🥳"
             await event.reply(
-                f"You have succesfully connected with the boy's Database! 🥳\n\n",
+                f"You have succesfully connected with the bot's Database! 🥳\n\n",
             )
         else:
             u = await event.client.get_entity(event.chat_id)
