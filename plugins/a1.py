@@ -40,59 +40,59 @@ from . import *
 async def _(e):
     if not udB.get("AUTOPOST") == "True":
         return
-    x = get_source_channels()
-    th = await e.get_chat()
-    for a1s in x:
-        if str(th.id) not in str(a1s):
+    s = get_source_channels()
+    ch = await e.get_chat()
+    for cs in s:
+        if str(ch.id) not in str(cs):
             return
-    y = get_destinations()
-    for b1s in y:
+    m = get_destinations()
+    for ks in m:
         try:
             if e.text and not e.media:
-                await ultroid_bot.send_message(int(b1s), e.text)
+                await ultroid_bot.send_message(int(ks), e.text)
             elif e.media and e.text:
-                await ultroid_bot.send_file(int(b1s), e.media, caption=e.text)
+                await ultroid_bot.send_file(int(ks), e.media, caption=e.text)
             else:
-                await ultroid_bot.send_file(int(b1s), e.media)
+                await ultroid_bot.send_file(int(ks), e.media)
         except Exception as e:
             await ultroid_bot.send_message(bot.me.id, str(e))
 
 
 
-@ultroid_cmd(pattern="a1source (.*)")
+@ultroid_cmd(pattern="c1source (.*)")
 async def source(e):
-    a1 = e.pattern_match.group(1)
+    j = e.pattern_match.group(1)
     try:
-        b1 = int(a1)
+        q = int(j)
     except Exception:
         try:
-            b1 = int((await bot.get_entity(a1)).id)
+            q = int((await bot.get_entity(j)).id)
         except Exception as es:
             print(es)
             return
-    if not is_source_channel_added(b1):
-        add_source_channel(b1)
+    if not is_source_channel_added(q):
+        add_source_channel(q)
         await eor(e, "Source added succesfully")
-    elif is_source_channel_added(b1):
+    elif is_source_channel_added(q):
         await eor(e, "Source channel already added")
 
 
 
-@ultroid_cmd(pattern="a1dest (.*)")
+@ultroid_cmd(pattern="c1dest (.*)")
 async def destination(e):
-    a1 = e.pattern_match.group(1)
+    j = e.pattern_match.group(1)
     try:
-        b1 = int(x)
+        q = int(j)
     except Exception:
         try:
-            b1 = int((await bot.get_entity(a1)).id)
+            q = int((await bot.get_entity(j)).id)
         except Exception as es:
             print(es)
             return
-    if not is_destination_added(b1):
-        add_destination(b1)
+    if not is_destination_added(q):
+        add_destination(q)
         await eor(e, "Destination added succesfully")
-    elif is_destination_added(b1):
+    elif is_destination_added(q):
         await eor(e, "Destination channel already added")
 
 
