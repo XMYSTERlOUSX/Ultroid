@@ -35,7 +35,7 @@ async def assistant(event):
             if udB.get("PMBOT") == "True":
                 ok = "You have succesfully connected with the boy's Database! 🥳"
             await event.reply(
-                f"🍁Hi am Mysterious Uploader bot.. 🍁!\n\n",
+                f"You have succesfully connected with the boy's Database! 🥳\n\n",
             )
         else:
             u = await event.client.get_entity(event.chat_id)
@@ -43,7 +43,6 @@ async def assistant(event):
             mention = f"[{get_display_name(u)}](tg://user?id={u.id})"
             await event.reply(
                 Redis("STARTMSG").format(me=me, mention=mention),
-                buttons=[Button.url("Know More", url="https://t.me/TeamUltroid")],
             )
 
 
