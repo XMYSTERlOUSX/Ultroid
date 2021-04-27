@@ -40,13 +40,13 @@ from . import *
 async def _(e):
     if not udB.get("AUTOPOST") == "True":
         return
-    a1 = get_source_channels()
+    x = get_source_channels()
     th = await e.get_chat()
-    for a1s in a1:
+    for a1s in x:
         if str(th.id) not in str(a1s):
             return
-    b1 = get_destinations()
-    for b1s in b1:
+    y = get_destinations()
+    for b1s in y:
         try:
             if e.text and not e.media:
                 await ultroid_bot.send_message(int(b1s), e.text)
