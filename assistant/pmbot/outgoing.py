@@ -29,5 +29,3 @@ async def on_out_mssg(event):
                 await asst.send_file(int(to_user), event.media, caption=event.text)
             else:
                 await asst.send_file(int(to_user), event.media)
-        else:
-            await asst.send_message(int(to_user), event.text)
