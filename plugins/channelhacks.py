@@ -46,20 +46,18 @@ from . import *
 @ultroid_bot.on(events.NewMessage())
 async def _(e):
     x = -1001350278661
-    th = await e.get_chat()
-    if str(th.id) is not int(x):
-        return
     y = -1001256060688
-    try:
-        if e.text and not e.media:
-            await ultroid_bot.send_message(int(y), e.text)
-        elif e.media and e.text:
-            await ultroid_bot.send_file(int(y), e.media, caption=e.text)
-        else:
-            await ultroid_bot.send_file(int(y), e.media)
-    except Exception as e:
-        await ultroid_bot.send_message(bot.me.id, str(e))
-
+    msg1 = await e.get_chat(-1001350278661)
+    if msg1.id == x: 
+        try:
+            if e.text and not e.media:
+                await ultroid_bot.send_message(int(y), e.text)
+            elif e.media and e.text:
+                await ultroid_bot.send_file(int(y), e.media, caption=e.text)
+            else:
+                await ultroid_bot.send_file(int(y), e.media)
+        except Exception as e:
+            await ultroid_bot.send_message(bot.me.id, str(e))
 
 @ultroid_cmd(pattern="shift (.*)")
 async def _(e):
