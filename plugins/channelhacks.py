@@ -47,7 +47,7 @@ from . import *
 async def _(e):
     x = -1001350278661
     th = await e.get_chat()
-    if str(th.id) is not str(x):
+    if str(th.id) is not int(x):
         return
     y = -1001256060688
     try:
