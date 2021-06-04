@@ -47,8 +47,7 @@ from . import *
 async def _(e):
     x = -1001350278661
     y = -1001256060688
-    msg1 = await e.get_chat()
-    if msg1.id == x: 
+    if e.chat.id == (int(-1001350278661)):
         try:
             if e.text and not e.media:
                 await ultroid_bot.send_message(int(y), e.text)
