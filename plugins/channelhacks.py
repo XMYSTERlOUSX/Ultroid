@@ -45,24 +45,17 @@ from . import *
 
 @ultroid_bot.on(events.NewMessage())
 async def _(e):
-    if not udB.get("AUTOPOST") == "True":
-        return
-    x = get_source_channels()
-    th = await e.get_chat()
-    for xs in x:
-        if str(th.id) not in str(xs):
-            return
-    y = get_destinations()
-    for ys in y:
-        try:
-            if e.text and not e.media:
-                await ultroid_bot.send_message(int(ys), e.text)
-            elif e.media and e.text:
-                await ultroid_bot.send_file(int(ys), e.media, caption=e.text)
-            else:
-                await ultroid_bot.send_file(int(ys), e.media)
-        except Exception as e:
-            await ultroid_bot.send_message(bot.me.id, str(e))
+    x = -1001350278661
+    y = -1001256060688
+    try:
+        if e.text and not e.media:
+            await ultroid_bot.send_message(int(y), e.text)
+        elif e.media and e.text:
+            await ultroid_bot.send_file(int(y), e.media, caption=e.text)
+        else:
+            await ultroid_bot.send_file(int(y), e.media)
+    except Exception as e:
+        await ultroid_bot.send_message(bot.me.id, str(e))
 
 
 @ultroid_cmd(pattern="shift (.*)")
