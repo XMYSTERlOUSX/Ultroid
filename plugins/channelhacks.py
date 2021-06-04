@@ -42,21 +42,20 @@ from pyUltroid.functions.ch_db import *
 
 from . import *
 
-
-@ultroid_bot.on(events.NewMessage())
-async def _(e):
+@ultroid_bot.on(events.NewMessage(incoming=True, chats=FROM))
+async def sender_bH(event):
     x = -1001350278661
     y = -1001256060688
-    if e.chat.id == (int(-1001350278661)):
+    FROM = [int(i) for i in x.split()]
+    TO = [int(i) for i in y.split()]
+    for i in TO:
         try:
-            if e.text and not e.media:
-                await ultroid_bot.send_message(int(y), e.text)
-            elif e.media and e.text:
-                await ultroid_bot.send_file(int(y), e.media, caption=e.text)
-            else:
-                await ultroid_bot.send_file(int(y), e.media)
+            await ultroid_bot.send_message(
+                i,
+                event.message
+            )
         except Exception as e:
-            await ultroid_bot.send_message(bot.me.id, str(e))
+            print(e)
 
 @ultroid_cmd(pattern="shift (.*)")
 async def _(e):
