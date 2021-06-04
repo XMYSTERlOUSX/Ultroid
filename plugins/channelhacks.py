@@ -47,7 +47,7 @@ from . import *
 async def _(e):
     x = -1001350278661
     y = -1001256060688
-    msg1 = await e.get_chat(-1001350278661)
+    msg1 = await e.get_chat()
     if msg1.id == x: 
         try:
             if e.text and not e.media:
